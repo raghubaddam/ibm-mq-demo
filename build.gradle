@@ -1,0 +1,35 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.10.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.ibm.mq'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile("com.fasterxml.jackson.core:jackson-databind")
+	compile ("com.ibm.mq:com.ibm.mq.allclient:9.0.4.0")
+	compile group: 'org.springframework', name: 'spring-jms', version: '5.0.3.RELEASE'
+	compile  "org.projectlombok:lombok:1.16.+"
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+}
